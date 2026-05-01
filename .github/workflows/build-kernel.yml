@@ -252,7 +252,6 @@ jobs:
         export KBUILD_BUILD_HOST=Github-Action
         export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
     
-        # 关键：只让 target 用 clang，host 强制用 gcc
         make -j$(nproc --all) \
           O=out ARCH=${{ env.ARCH }} \
           CC=clang LD=ld.lld \
